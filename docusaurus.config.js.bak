@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Techlog',
+  title: 'Techblog',
   tagline: 'O Objetivo desse site é compartilhar minhas anotações e experiências enquanto aprendo sobre tecnologia',
   favicon: 'img/favicon.ico',
 
@@ -50,6 +50,13 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
         },
+        labs: {
+          sidebarPath: './sidebars.js',
+          // Please change this to your repo.
+          routeBasePath: 'labs',
+        },
+        
+        
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -91,9 +98,18 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Teste',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'docSidebar',
+            sidebarId: 'labsSidebar',
+            position: 'left',
+            label: 'Labs',
+          },
+          { to: '/blog', 
+            label: 'Blog', 
+            position: 'left'
+          },
           {
             href: 'https://github.com/m4th3ux',
             label: 'GitHub',
@@ -101,9 +117,9 @@ const config = {
           },
           {
             href: 'https://www.linkedin.com/in/matheus-ulhoa/',
-            label: 'Linkedin',
+            label: 'LinkedIn',
             position: 'right',
-          },
+          }
         ],
       },
       footer: {
