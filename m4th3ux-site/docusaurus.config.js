@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'm4theux techlogs',
+  tagline: 'O Objetivo desse site é compartilhar minhas anotações e experiências enquanto aprendo sobre tecnologia',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -23,12 +23,12 @@ const config = {
   url: 'https://your-docusaurus-site.example.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/m4th3ux-site/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'm4th3ux', // Usually your GitHub org/user name.
+  projectName: 'm4th3ux-techlog', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -49,9 +49,6 @@ const config = {
         docs: {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -60,9 +57,6 @@ const config = {
             xslt: true,
           },
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -80,11 +74,17 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false, // Allow users to switch between light and dark mode
+        respectPrefersColorScheme: true, // Respect user's system preference
+      },
       navbar: {
-        title: 'My Site',
+        title: 'm4theux techlogs',
+        style: 'dark',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo_m4th3ux.svg',
         },
         items: [
           {
