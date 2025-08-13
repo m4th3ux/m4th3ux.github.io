@@ -79,6 +79,11 @@ const config = {
         disableSwitch: true, // Allow users to switch between light and dark mode
         respectPrefersColorScheme: true, // Respect user's system preference
       },
+      docs: {
+        sidebar: {
+          hideable: true, // Automatically collapse categories in the sidebar
+        },
+      },
       navbar: {
         title: '',
         style: 'dark',
@@ -91,7 +96,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
