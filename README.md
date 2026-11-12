@@ -10,7 +10,7 @@ Blog pessoal e documentação ao vivo do [Matheus Ulhôa](https://github.com/m4t
 
 ## Requisitos
 
-- Node.js `>= 18.0`
+- Node.js `>= 20.0`
 - pnpm `9.x`
 
 ```bash
