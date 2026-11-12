@@ -1,41 +1,52 @@
-# Website
+# Techlog — Site Pessoal
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Blog pessoal e documentação ao vivo do [Matheus Ulhôa](https://github.com/m4th3ux), construído com [Docusaurus](https://docusaurus.io/) e hospedado no GitHub Pages em [m4th3ux.github.io](https://m4th3ux.github.io/).
 
-## Installation
+## Stack
+
+- [Docusaurus](https://docusaurus.io/) 3.x (preset classic)
+- [pnpm](https://pnpm.io/) como gerenciador de pacotes
+- Deploy automático via GitHub Actions (GitHub Pages)
+
+## Requisitos
+
+- Node.js `>= 18.0`
+- pnpm `9.x`
 
 ```bash
-yarn
+# habilitar o corepack (Node >= 16.9)
+corepack enable
 ```
 
-## Local Development
+## Desenvolvimento local
 
 ```bash
-yarn start
+pnpm install
+pnpm start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+O comando inicia o servidor de desenvolvimento e abre o navegador em http://localhost:3000/. A maioria das mudanças é refletida ao vivo, sem reiniciar o servidor.
 
 ## Build
 
 ```bash
-yarn build
+pnpm build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Gera o conteúdo estático na pasta `build/`, pronto para ser servido por qualquer host estático.
 
-## Deployment
+## Deploy
 
-Using SSH:
+O deploy é automático: todo push na branch `main` dispara o workflow `.github/workflows/deploy.yml`, que constrói o site e publica via GitHub Pages (Actions).
 
-```bash
-USE_SSH=true yarn deploy
-```
+Para isso, nas configurações do repositório, a fonte do GitHub Pages deve estar apontando para **GitHub Actions** (`Settings → Pages → Source → GitHub Actions`). Nenhum token pessoal é necessário — o workflow usa o `GITHUB_TOKEN` automático.
 
-Not using SSH:
+## Estrutura
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `blog/` — posts do blog (Markdown/MDX)
+- `docs/` — documentação e anotações ao vivo
+- `src/pages/` — páginas React (homepage)
+- `src/css/custom.css` — tema global
+- `static/` — arquivos estáticos (imagens, favicon)
+- `docusaurus.config.js` — configuração do site
+- `sidebars.js` — definição das sidebars da documentação
