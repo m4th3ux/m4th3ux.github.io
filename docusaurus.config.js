@@ -28,7 +28,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'm4th3ux', // Usually your GitHub org/user name.
-  projectName: 'm4th3ux-techlog', // Usually your repo name.
+  projectName: 'm4th3ux.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -37,8 +37,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -48,7 +48,6 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
         },
         blog: {
           showReadingTime: true,
@@ -56,7 +55,6 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -76,7 +74,7 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: true, // Allow users to switch between light and dark mode
+        disableSwitch: false, // Allow users to switch between light and dark mode
         respectPrefersColorScheme: true, // Respect user's system preference
       },
       docs: {
@@ -88,7 +86,7 @@ const config = {
         title: '',
         style: 'dark',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Techlog',
           src: 'img/logo_m4th3ux.svg',
         },
         items: [
@@ -106,14 +104,14 @@ const config = {
           },
           {
             href: 'https://www.linkedin.com/in/matheus-ulhoa/',
-            label: 'Linkedin',
+            label: 'LinkedIn',
             position: 'right',
           },
         ],
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} m4th3ux-techlog, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Matheus Ulhôa. Feito com Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
