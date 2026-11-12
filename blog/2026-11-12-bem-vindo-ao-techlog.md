@@ -7,7 +7,7 @@ tags: [boas-vindas]
 
 Este é o primeiro post do **Techlog** — meu espaço pessoal para compartilhar anotações e experiências enquanto aprendo sobre tecnologia.
 
-<!-- truncate -->
+{/* truncate */}
 
 A ideia aqui é simples: registrar, em primeira mão, o que estou estudando e experimentando. Nada de conteúdo "polido para o algoritmo" — apenas notas úteis que eu mesmo gostaria de ter encontrado antes.
 
