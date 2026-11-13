@@ -1,25 +1,531 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Home — Cyber Garden Console
+ * Estilos da página inicial (CSS Modules).
  */
 
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+.wrapper {
   position: relative;
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+/* ===== Ambient glows ===== */
+.glowEmerald,
+.glowCyan {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glowEmerald {
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20rem;
+  height: 20rem;
+  background: rgba(0, 255, 157, 0.1);
+}
+
+.glowCyan {
+  top: 18rem;
+  right: -10%;
+  width: 15rem;
+  height: 15rem;
+  background: rgba(6, 182, 212, 0.1);
+}
+
+/* ===== Status bar ===== */
+.statusBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.livePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(35, 42, 58, 0.8);
+  backdrop-filter: blur(12px);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-fixed);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-primary-neon);
+  animation: cgPulse 2s ease-in-out infinite;
+}
+
+@keyframes cgPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
   }
 }
 
-.buttons {
+.socialPills {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.socialPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(35, 42, 58, 0.9);
+  color: var(--color-text-secondary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.socialPill:hover {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.socialPill svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: currentColor;
+}
+
+/* ===== Hero card (terminal) ===== */
+.heroCard {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  background: var(--color-surface-charcoal);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heroBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.trafficLights {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.tlRed,
+.tlAmber,
+.tlGreen {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tlRed {
+  background: rgba(244, 63, 94, 0.8);
+}
+
+.tlAmber {
+  background: rgba(245, 158, 11, 0.8);
+}
+
+.tlGreen {
+  background: rgba(0, 255, 157, 0.8);
+}
+
+.heroPath {
+  margin-left: 0.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bashBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
+  background: var(--color-surface-container-highest);
+  color: var(--color-primary-fixed);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.heroTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.versionBadge {
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(0, 255, 157, 0.15);
+  color: var(--color-primary-neon);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.heroSubtitle {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.primaryBtn {
+  background: var(--color-primary-neon);
+  color: #070e1d;
+  box-shadow: 0 0 24px -4px rgba(0, 255, 157, 0.35);
+}
+
+.primaryBtn:hover {
+  color: #070e1d;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.secondaryBtn {
+  background: var(--color-surface-container-high);
+  color: var(--color-text-primary);
+}
+
+.secondaryBtn:hover {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+/* ===== Activity log ===== */
+.activityLog {
+  border-radius: 8px;
+  background: var(--color-surface-deep);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activityMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.activityCommit {
+  color: var(--color-primary-fixed);
+}
+
+.activityCommit code {
+  font-family: inherit;
+  color: var(--color-primary-fixed);
+}
+
+.activityMsg {
+  margin: 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prompt {
+  color: var(--color-accent-amber);
+}
+
+/* ===== Section header ===== */
+.sectionHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.sectionMeta {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-primary-neon);
+}
+
+/* ===== Cards ===== */
+.cards {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  border-radius: 12px;
+  background: var(--color-surface-charcoal);
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  background: var(--color-surface-elevated);
+  border-color: var(--color-border-glow);
+  text-decoration: none;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cardIcon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.cardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--color-surface-deep);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+}
+
+.badgeDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.cardDesc {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ===== Card previews ===== */
+.preview {
+  border-radius: 8px;
+  background: var(--color-surface-deep);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.previewMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.previewTitle {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tagRow {
+  display: flex;
   flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
+  background: var(--color-surface-container-highest);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+/* ===== Stack section ===== */
+.stack {
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  background: var(--color-surface-charcoal);
+  border: 1px solid var(--color-border-subtle);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stackHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.stackTitle {
+  margin: 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.stackEngine {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-primary-fixed);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.metric {
+  border-radius: 8px;
+  background: var(--color-surface-deep);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.metricLabel {
+  margin-top: 0.25rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 640px) {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 997px) {
+  .wrapper {
+    padding-top: 1.5rem;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
 }
