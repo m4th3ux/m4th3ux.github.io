@@ -4,15 +4,46 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
-
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+
+// Tema Prism customizado — Cyber Garden Console (ver cyber-garden-design-guide.md §5.2)
+const cyberGardenPrism = {
+  plain: {color: '#e2e8f0', backgroundColor: '#070e1d'},
+  styles: [
+    {types: ['keyword', 'boolean', 'important'], style: {color: '#00ff9d'}},
+    {types: ['string', 'char', 'attr-value', 'inserted'], style: {color: '#6ee7b7'}},
+    {types: ['property', 'attr-name', 'class-name', 'function', 'selector'], style: {color: '#38bdf8'}},
+    {types: ['number', 'constant', 'symbol', 'builtin'], style: {color: '#f59e0b'}},
+    {types: ['comment', 'prolog', 'doctype', 'cdata'], style: {color: '#64748b', fontStyle: 'italic'}},
+    {types: ['punctuation'], style: {color: '#94a3b8'}},
+    {types: ['tag', 'operator', 'deleted'], style: {color: '#f43f5e'}},
+    {types: ['variable', 'parameter', 'regex'], style: {color: '#f8fafc'}},
+  ],
+};
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Techlog',
   tagline: 'O Objetivo desse site é compartilhar minhas anotações e experiências enquanto aprendo sobre tecnologia',
   favicon: 'img/favicon.ico',
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous'},
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap',
+      },
+    },
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -78,8 +109,8 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         defaultMode: 'dark',
-        disableSwitch: false, // Allow users to switch between light and dark mode
-        respectPrefersColorScheme: true, // Respect user's system preference
+        disableSwitch: true, // Tema Cyber Garden é dark-only
+        respectPrefersColorScheme: false,
       },
       docs: {
         sidebar: {
@@ -87,7 +118,7 @@ const config = {
         },
       },
       navbar: {
-        title: '',
+        title: 'm4th3ux',
         style: 'dark',
         logo: {
           alt: 'Techlog',
@@ -118,8 +149,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Matheus Ulhôa. Feito com Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: cyberGardenPrism,
+        darkTheme: cyberGardenPrism,
       },
     }),
 };
