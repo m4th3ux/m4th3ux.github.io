@@ -14,6 +14,11 @@
   --color-surface-low: #141b2b;
   --color-surface-container: #1a2236;
   --color-surface-bright: #323949;
+  --color-surface-deep: #0a0f18;
+  --color-surface-charcoal: #111827;
+  --color-surface-elevated: #1e293b;
+  --color-surface-container-high: #232a3a;
+  --color-surface-container-highest: #2e3545;
 
   /* Cores de marca & acentos */
   --color-primary-neon: #00ff9d;
@@ -21,6 +26,9 @@
   --color-accent-cyan: #06b6d4;
   --color-accent-amber: #f59e0b;
   --color-accent-rose: #f43f5e;
+  --color-primary-fixed: #56ffa8;
+  --color-secondary-fixed: #d8e2ff;
+  --color-secondary-container: #508eff;
 
   /* Tipografia & texto */
   --color-text-primary: #f8fafc;
@@ -117,11 +125,15 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--color-text-primary);
+  background: rgba(35, 42, 58, 0.6);
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
 }
 
 .navbar__title::before {
   content: '> ';
   color: var(--color-primary-neon);
+  font-weight: 700;
 }
 
 .navbar__link {
